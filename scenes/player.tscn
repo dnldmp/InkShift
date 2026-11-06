@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://88twsn03fyuc"]
+
+[ext_resource type="Texture2D" uid="uid://jyakqvluvdvc" path="res://sprites/toy.png" id="1_3vyb7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw2wd"]
+radius = 8.0
+
+[node name="Player" type="RigidBody2D" unique_id=719354141]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=811973950]
+scale = Vector2(2, 2)
+texture = ExtResource("1_3vyb7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016628424]
+shape = SubResource("CircleShape2D_xw2wd")
