@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bu1f54o2atlps"]
+
+[ext_resource type="Script" uid="uid://drau1olx8n2ko" path="res://scripts/shape_pickup.gd" id="1_6pnag"]
+[ext_resource type="SpriteFrames" uid="uid://cbj4rphf062vv" path="res://frames/drop.tres" id="2_6pnag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bia13"]
+size = Vector2(14, 14)
+
+[node name="ShapePickup" type="Area2D" unique_id=2576893]
+script = ExtResource("1_6pnag")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1609305480]
+sprite_frames = ExtResource("2_6pnag")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1938252047]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_bia13")

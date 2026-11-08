@@ -16,9 +16,11 @@ var jump_buffer := 0.0
 var shape: ShapeData
 var unlocked: Array[ShapeData] = []
 
+var respawn_point: Vector2
+
 func _ready() -> void:
-	#unlocked.append(all_shapes[1])
-	unlocked = all_shapes.duplicate()
+	respawn_point = global_position
+	unlocked.append(all_shapes[0])
 	apply_shape(all_shapes[0])
 	
 
@@ -54,6 +56,9 @@ func _physics_process(delta: float) -> void:
 		next_shape(1)
 	if Input.is_action_just_pressed("shape_prev"):
 		next_shape(-1)
+	
+	if Input.is_action_just_pressed("restart"):
+		die()
 
 func apply_shape(new_shape: ShapeData) -> void:
 	shape = new_shape
@@ -83,3 +88,19 @@ func try_shape(new_shape: ShapeData) -> void:
 	if fit_check.is_colliding():
 		return   # aqui: tocar um som de "não" e tremer a tela
 	apply_shape(new_shape)
+
+func die() -> void:
+	set_physics_process(false)
+	visible = false
+	await get_tree().create_timer(0.2).timeout
+	global_position = respawn_point
+	reset_physics_interpolation()
+	velocity = Vector2.ZERO
+	apply_shape(all_shapes[0])
+	visible = true
+	set_physics_process(true)
+
+func learn(new_shape: ShapeData) -> void:
+	if not unlocked.has(new_shape):
+		unlocked.append(new_shape)
+	try_shape(new_shape)
