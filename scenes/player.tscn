@@ -1,16 +1,38 @@
-[gd_scene format=3 uid="uid://88twsn03fyuc"]
+[gd_scene format=3 uid="uid://w84g87uvjqo0"]
 
-[ext_resource type="Texture2D" uid="uid://jyakqvluvdvc" path="res://sprites/toy.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://06pbm7fkun2k" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://ccavd2bchmmdu" path="res://scripts/shape_data.gd" id="2_qlg0r"]
+[ext_resource type="Resource" uid="uid://76lgkat7trxt" path="res://shapes/drop.tres" id="3_tuyoq"]
+[ext_resource type="Resource" uid="uid://cdok0a7i33ivl" path="res://shapes/spring.tres" id="4_fjrip"]
+[ext_resource type="SpriteFrames" uid="uid://cbj4rphf062vv" path="res://frames/drop.tres" id="5_qlg0r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xw2wd"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw2wd"]
+resource_local_to_scene = true
+size = Vector2(14, 14)
 
-[node name="Player" type="RigidBody2D" unique_id=719354141]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1jbj"]
+size = Vector2(11, 12)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=811973950]
-scale = Vector2(2, 2)
-texture = ExtResource("1_3vyb7")
-metadata/_edit_group_ = true
+[node name="Player" type="CharacterBody2D" unique_id=1283594060 groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_g2els")
+all_shapes = Array[ExtResource("2_qlg0r")]([ExtResource("3_tuyoq"), ExtResource("4_fjrip")])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016628424]
-shape = SubResource("CircleShape2D_xw2wd")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=558167499]
+sprite_frames = ExtResource("5_qlg0r")
+autoplay = "default"
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2131868169]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_xw2wd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1061747197]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="FitCheck" type="ShapeCast2D" parent="." unique_id=307723070]
+visible = false
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_b1jbj")
+target_position = Vector2(0, 0)

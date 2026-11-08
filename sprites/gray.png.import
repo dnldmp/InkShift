@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do8ddoigyyydh"
-path="res://.godot/imported/danger.png-1331010f6ad390c26524741c01ff8806.ctex"
+uid="uid://cyvcolslgox6e"
+path="res://.godot/imported/gray.png-a0c461d074b36adb61c26915414423cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/danger.png"
-dest_files=["res://.godot/imported/danger.png-1331010f6ad390c26524741c01ff8806.ctex"]
+source_file="res://sprites/gray.png"
+dest_files=["res://.godot/imported/gray.png-a0c461d074b36adb61c26915414423cf.ctex"]
 
 [params]
 

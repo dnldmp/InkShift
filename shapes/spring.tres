@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ShapeData" format=3 uid="uid://cdok0a7i33ivl"]
+
+[ext_resource type="SpriteFrames" uid="uid://bhej263rb3lpe" path="res://frames/spring.tres" id="1_np33l"]
+[ext_resource type="Script" uid="uid://ccavd2bchmmdu" path="res://scripts/shape_data.gd" id="1_w6nsp"]
+
+[resource]
+script = ExtResource("1_w6nsp")
+size = Vector2(14, 22)
+frames = ExtResource("1_np33l")
+speed = 100.0
+accel = 900.0
+air_accel = 320.0
+gravity = 800.0
+jump_velocity = -440.0
+jump_cut = 0.7
+max_fall = 450.0
+wind_factor = 0.4
+metadata/_custom_type_script = "uid://ccavd2bchmmdu"

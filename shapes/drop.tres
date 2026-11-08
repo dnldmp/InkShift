@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ShapeData" format=3 uid="uid://76lgkat7trxt"]
+
+[ext_resource type="SpriteFrames" uid="uid://cbj4rphf062vv" path="res://frames/drop.tres" id="1_a5u3v"]
+[ext_resource type="Script" uid="uid://ccavd2bchmmdu" path="res://scripts/shape_data.gd" id="1_pa2w3"]
+
+[resource]
+script = ExtResource("1_pa2w3")
+frames = ExtResource("1_a5u3v")
+metadata/_custom_type_script = "uid://ccavd2bchmmdu"
