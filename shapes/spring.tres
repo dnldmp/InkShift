@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_w6nsp")
-size = Vector2(14, 22)
+size = Vector2(12, 24)
 frames = ExtResource("1_np33l")
 speed = 100.0
 accel = 900.0

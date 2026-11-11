@@ -2,24 +2,64 @@
 
 [ext_resource type="Texture2D" uid="uid://bm4dl487pq2ri" path="res://sprites/spring.png" id="1_tjb7v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3eg0s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjb7v"]
 atlas = ExtResource("1_tjb7v")
 region = Rect2(0, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ecynb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eg0s"]
 atlas = ExtResource("1_tjb7v")
 region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecynb"]
+atlas = ExtResource("1_tjb7v")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn0ho"]
+atlas = ExtResource("1_tjb7v")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oks3"]
+atlas = ExtResource("1_tjb7v")
+region = Rect2(48, 0, 16, 24)
 
 [resource]
 animations = [{
 "frames": [{
-"duration": 10.0,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjb7v")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3eg0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjb7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eg0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjb7v")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ecynb")
 }],
 "loop": 1,
 "name": &"default",
+"speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn0ho")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oks3")
+}],
+"loop": 1,
+"name": &"jump",
 "speed": 5.0
 }]

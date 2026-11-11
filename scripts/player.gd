@@ -46,11 +46,14 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= shape.jump_cut
-
+	
+	update_anim()
+	
 	move_and_slide()
 	
 	if dir != 0:
 		camera.offset.x = lerp(camera.offset.x, dir * 40.0, 2.0 * delta)
+		sprite.flip_h = dir < 0
 	
 	if Input.is_action_just_pressed("shape_next"):
 		next_shape(1)
@@ -70,10 +73,6 @@ func apply_shape(new_shape: ShapeData) -> void:
 		var frame := shape.frames.get_frame_texture("default", 0)
 		sprite.offset.y = -frame.get_height() / 2.0
 		sprite.play("default")
-
-#func next_shape(step: int) -> void:
-	#var i := unlocked.find(shape)
-	#try_shape(unlocked[posmod(i + step, unlocked.size())])
 
 func next_shape(step: int) -> void:
 	var i := unlocked.find(shape)
@@ -104,3 +103,10 @@ func learn(new_shape: ShapeData) -> void:
 	if not unlocked.has(new_shape):
 		unlocked.append(new_shape)
 	try_shape(new_shape)
+
+func update_anim() -> void:
+	var anim := "default"
+	if not is_on_floor():
+		anim = "jump" if velocity.y < 0 else "fall"
+	if sprite.sprite_frames.has_animation(anim):
+		sprite.play(anim)

@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cbj4rphf062vv" path="res://frames/drop.tres" id="2_6pnag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bia13"]
-size = Vector2(14, 14)
+size = Vector2(12, 15)
 
 [node name="ShapePickup" type="Area2D" unique_id=2576893]
 collision_mask = 2
@@ -12,10 +12,11 @@ script = ExtResource("1_6pnag")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1609305480]
 sprite_frames = ExtResource("2_6pnag")
+frame_progress = 0.68139297
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1938252047]
-position = Vector2(0, -7)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_bia13")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
