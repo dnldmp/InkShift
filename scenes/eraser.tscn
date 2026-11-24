@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://btnbuy7hre5ow"]
+
+[ext_resource type="Script" uid="uid://dxf8fey8tojn7" path="res://scripts/eraser.gd" id="1_famxi"]
+[ext_resource type="Texture2D" uid="uid://bbscdra3t3pg6" path="res://sprites/eraser.png" id="2_famxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw2wd"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we5pn"]
+size = Vector2(16, 7.166667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yny2t"]
+size = Vector2(16, 4.833333)
+
+[node name="Eraser" type="CharacterBody2D" unique_id=258586551]
+z_index = -1
+scale = Vector2(1.2, 1.2)
+collision_layer = 4
+script = ExtResource("1_famxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=294933092]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_xw2wd")
+
+[node name="Flip" type="Node2D" parent="." unique_id=975491763]
+
+[node name="Sprite2D" type="Sprite2D" parent="Flip" unique_id=1017172849]
+texture = ExtResource("2_famxi")
+
+[node name="WallCheck" type="RayCast2D" parent="Flip" unique_id=2047132857]
+target_position = Vector2(-9, 0)
+
+[node name="FloorCheck" type="RayCast2D" parent="Flip" unique_id=1747988938]
+position = Vector2(-9, -4)
+target_position = Vector2(0, 14)
+
+[node name="Hitbox" type="Area2D" parent="Flip" unique_id=498894409]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/Hitbox" unique_id=95288773]
+position = Vector2(0, 4.4166665)
+shape = SubResource("RectangleShape2D_we5pn")
+debug_color = Color(0.9594628, 0, 0.5241714, 0.41960785)
+
+[node name="Head" type="Area2D" parent="Flip" unique_id=1625506716]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/Head" unique_id=1090779676]
+position = Vector2(0, -1.5833334)
+shape = SubResource("RectangleShape2D_yny2t")
+debug_color = Color(0, 0.64304054, 0.3127028, 0.41960785)
+
+[connection signal="body_entered" from="Flip/Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Flip/Head" to="." method="_on_head_body_entered"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cucu4dne7m35"]
+
+[ext_resource type="Texture2D" uid="uid://ylbodlyn6i0p" path="res://sprites/bg_row.png" id="1_bkp1e"]
+[ext_resource type="Texture2D" uid="uid://b3qu1ombcyu7f" path="res://sprites/bg_red_line.png" id="2_y0upk"]
+
+[node name="Background" type="Node2D" unique_id=415892372]
+z_index = -10
+
+[node name="Paper" type="Parallax2D" parent="." unique_id=1789189901]
+repeat_size = Vector2(480, 272)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Paper" unique_id=1705872975]
+texture_repeat = 2
+texture = ExtResource("1_bkp1e")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 480, 272)
+
+[node name="Margin" type="Parallax2D" parent="." unique_id=333549996]
+repeat_size = Vector2(0, 272)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Margin" unique_id=27910460]
+position = Vector2(40, 0)
+texture = ExtResource("2_y0upk")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 4, 272)

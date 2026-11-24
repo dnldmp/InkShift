@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dk53gferud8in"]
+
+[ext_resource type="Script" uid="uid://dt64nldtp6gy2" path="res://scripts/torn_paper.gd" id="1_svbyb"]
+[ext_resource type="Texture2D" uid="uid://cco5birs0mimn" path="res://sprites/torn_paper.png" id="2_gjgcb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw2wd"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we5pn"]
+size = Vector2(16, 5.75)
+
+[node name="TornPaper" type="StaticBody2D" unique_id=1836490049]
+collision_mask = 0
+script = ExtResource("1_svbyb")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=420866131]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+texture = ExtResource("2_gjgcb")
+patch_margin_left = 4
+patch_margin_top = 6
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870166449]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_xw2wd")
+
+[node name="Detector" type="Area2D" parent="." unique_id=1209134934]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=710231742]
+position = Vector2(0, -12.125)
+shape = SubResource("RectangleShape2D_we5pn")
+debug_color = Color(0.4246394, 0.6032298, 5.7756904e-07, 0.41960785)
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

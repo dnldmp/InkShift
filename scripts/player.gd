@@ -20,14 +20,17 @@ var respawn_point: Vector2
 
 func _ready() -> void:
 	respawn_point = global_position
-	unlocked.append(all_shapes[0])
-	apply_shape(all_shapes[0])
+	if Game.unlocked_shapes.is_empty():
+		Game.unlocked_shapes.append(all_shapes[0])
+	unlocked = Game.unlocked_shapes
+	apply_shape(unlocked[0])
 	
 
 func _physics_process(delta: float) -> void:
 	var dir := Input.get_axis("move_left", "move_right")
 	velocity.x = move_toward(velocity.x, dir * shape.speed, shape.accel * delta)
 	velocity.y += shape.gravity * delta
+	velocity.y = min(velocity.y, shape.max_fall)
 
 	if is_on_floor():
 		coyote = COYOTE_TIME
@@ -52,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if dir != 0:
-		camera.offset.x = lerp(camera.offset.x, dir * 40.0, 2.0 * delta)
+		camera.position.x = lerp(camera.position.x, dir * 40.0, 2.0 * delta)
 		sprite.flip_h = dir < 0
 	
 	if Input.is_action_just_pressed("shape_next"):

@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="ShapeData" format=3 uid="uid://g2do51v54p1q"]
+
+[ext_resource type="Script" uid="uid://ccavd2bchmmdu" path="res://scripts/shape_data.gd" id="1_5iiqa"]
+[ext_resource type="Texture2D" uid="uid://brqficmg3j8cr" path="res://sprites/weight.png" id="1_hed5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21boj"]
+atlas = ExtResource("1_hed5q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeikf"]
+atlas = ExtResource("1_hed5q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd3yq"]
+atlas = ExtResource("1_hed5q")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shnpb"]
+atlas = ExtResource("1_hed5q")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uldng"]
+atlas = ExtResource("1_hed5q")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5iiqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21boj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeikf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21boj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeikf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21boj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeikf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd3yq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shnpb")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uldng")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_5iiqa")
+id = "weight"
+frames = SubResource("SpriteFrames_5iiqa")
+speed = 70.0
+accel = 700.0
+air_accel = 400.0
+gravity = 1500.0
+jump_velocity = -150.0
+jump_cut = 1.0
+max_fall = 480.0
+wind_factor = 0.0
+can_press = true
+can_break = true
+can_smash = true
+metadata/_custom_type_script = "uid://ccavd2bchmmdu"

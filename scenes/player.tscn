@@ -8,7 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xw2wd"]
 resource_local_to_scene = true
-size = Vector2(12, 15)
+size = Vector2(12, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1jbj"]
 size = Vector2(11, 12)
@@ -24,7 +24,7 @@ autoplay = "default"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2131868169]
-position = Vector2(0, -7.5)
+position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_xw2wd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1061747197]
